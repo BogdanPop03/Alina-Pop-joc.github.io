@@ -81,6 +81,8 @@ btnRoll.addEventListener("click", function () {
 })
 
 btnHold.addEventListener("click", function () {
+	diceElement.classList.add("hidden")
+
 	if (playerLeftStatus.classList.contains("player--active")) {
 		console.log("Switched from Player Left to Player Right.")
 
