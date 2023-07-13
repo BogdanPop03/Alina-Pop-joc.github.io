@@ -88,7 +88,7 @@ btnHold.addEventListener("click", function () {
 			Number(score0Element.textContent) +
 			Number(currentScoreLeft.textContent)
 
-		if (Number(score0Element.textContent) >= 10) {
+		if (Number(score0Element.textContent) >= 100) {
 			const scoreLeft =
 				Number(playerLeftScore.textContent.match(/:\s(\d+)/)[1]) + 1
 
@@ -112,7 +112,7 @@ btnHold.addEventListener("click", function () {
 			Number(score1Element.textContent) +
 			Number(currentScoreRight.textContent)
 
-		if (Number(score1Element.textContent) >= 10) {
+		if (Number(score1Element.textContent) >= 100) {
 			const scoreRight =
 				Number(playerRightScore.textContent.match(/:\s(\d+)/)[1]) + 1
 
