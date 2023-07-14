@@ -79,7 +79,7 @@ document.addEventListener("keydown", function (event) {
 
 // Guess my number
 
-const randomValue = () => Math.trunc(Math.random() * 19) + 1
+const randomValue = () => Math.trunc(Math.random() * 20) + 1
 
 let valueToGuess = randomValue()
 
@@ -114,13 +114,18 @@ document.querySelector(".check").addEventListener("click", function () {
 		document.querySelector(".message").textContent = "Correct number!"
 
 		// the highscore gets changed
-		if (Number(document.querySelector(".score").textContent) > highscore) {
-			highscore = Number(document.querySelector(".score").textContent)
+		if (
+			Number(document.getElementById("score--gmn").textContent) >
+			highscore
+		) {
+			highscore = Number(
+				document.getElementById("score--gmn").textContent
+			)
 
 			console.log(`Highscore: ${highscore}`)
 
 			document.querySelector(".highscore").textContent = Number(
-				document.querySelector(".score").textContent
+				document.getElementById("score--gmn").textContent
 			)
 		}
 
@@ -134,8 +139,8 @@ document.querySelector(".check").addEventListener("click", function () {
 	}
 	// the number was not found
 	else {
-		document.querySelector(".score").textContent = String(
-			Number(document.querySelector(".score").textContent) - 1
+		document.getElementById("score--gmn").textContent = String(
+			Number(document.getElementById("score--gmn").textContent) - 1
 		)
 	}
 })
@@ -144,7 +149,7 @@ document.querySelector(".check").addEventListener("click", function () {
 document.querySelector(".again").addEventListener("click", function () {
 	document.querySelector(".message").textContent = "Start guessing..."
 	document.querySelector(".guess").value = ""
-	document.querySelector(".score").textContent = 20
+	document.getElementById("score--gmn").textContent = 20
 	valueToGuess = randomValue()
 	document.querySelector(".number").textContent = "?"
 	// document.querySelector("body").style.backgroundColor = "#222"
