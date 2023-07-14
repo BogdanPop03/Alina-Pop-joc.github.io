@@ -5,34 +5,76 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<link rel="stylesheet" href="style.css" />
-		<title>Dice Rolling Game</title>
+		<title>Modal window</title>
 	</head>
 	<body>
-		<main>
-			<section class="player player--0 player--active">
-				<h2 class="name" id="name--0">Player 1</h2>
-				<h3 class="name" , id="player--left--score">Score: 0</h3>
-				<p class="score" id="score--0">43</p>
-				<div class="current">
-					<p class="current-label">Current</p>
-					<p class="current-score" id="current--0">0</p>
-				</div>
-			</section>
-			<section class="player player--1">
-				<h2 class="name" id="name--1">Player 2</h2>
-				<h3 class="name" , id="player--right--score">Score: 0</h3>
-				<p class="score" id="score--1">24</p>
-				<div class="current">
-					<p class="current-label">Current</p>
-					<p class="current-score" id="current--1">0</p>
-				</div>
-			</section>
+		<button class="show-modal" id="btn--1">Show modal 1</button>
+		<button class="show-modal" id="btn--2">Show modal 2</button>
+		<button class="show-modal" id="btn--3">Show modal 3</button>
 
-			<img src="dice-5.png" alt="Playing dice" class="dice" />
-			<button class="btn btn--new">🔄 New game</button>
-			<button class="btn btn--roll">🎲 Roll dice</button>
-			<button class="btn btn--hold">📥 Hold</button>
-		</main>
+		<div class="modal hidden" id="modal--1">
+			<button class="close-modal">&times;</button>
+			<h1>Guess the number</h1>
+			<header>
+				<h1>Guess My Number!</h1>
+				<p class="between">(Between 1 and 20)</p>
+				<button class="btn again">Again!</button>
+				<div class="number">?</div>
+			</header>
+			<main>
+				<section class="left">
+					<input type="number" class="guess" />
+					<button class="btn check">Check!</button>
+				</section>
+				<section class="right">
+					<p class="message">Start guessing...</p>
+					<p class="label-score">
+						💯 Score: <span class="score">20</span>
+					</p>
+					<p class="label-highscore">
+						🥇 Highscore: <span class="highscore">0</span>
+					</p>
+				</section>
+			</main>
+		</div>
+
+		<div class="modal hidden" id="modal--2">
+			<button class="close-modal">&times;</button>
+			<h2>Dice rolling game</h2>
+			<main>
+				<section class="player player--0 player--active">
+					<h2 class="name" id="name--0">Player 1</h2>
+					<h3 class="name" , id="player--left--score">Score: 0</h3>
+					<p class="score" id="score--0">43</p>
+					<div class="current">
+						<p class="current-label">Current</p>
+						<p class="current-score" id="current--0">0</p>
+					</div>
+				</section>
+				<section class="player player--1">
+					<h2 class="name" id="name--1">Player 2</h2>
+					<h3 class="name" , id="player--right--score">Score: 0</h3>
+					<p class="score" id="score--1">24</p>
+					<div class="current">
+						<p class="current-label">Current</p>
+						<p class="current-score" id="current--1">0</p>
+					</div>
+				</section>
+
+				<img src="dice-5.png" alt="Playing dice" class="dice" />
+				<button class="btndrg btndrg--new">🔄 New game</button>
+				<button class="btndrg btndrg--roll">🎲 Roll dice</button>
+				<button class="btndrg btndrg--hold">📥 Hold</button>
+			</main>
+		</div>
+
+		<div class="modal hidden" id="modal--3">
+			<button class="close-modal">&times;</button>
+			<h1>Wrok in progress</h1>
+			<p>modal 3</p>
+		</div>
+		<div class="overlay hidden"></div>
+
 		<script src="script.js"></script>
 	</body>
 </html>

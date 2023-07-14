@@ -1,5 +1,163 @@
 "use strict"
 
+// Modal
+
+// const modal = document.querySelector(".modal")
+
+const modal1 = document.getElementById("modal--1")
+const modal2 = document.getElementById("modal--2")
+const modal3 = document.getElementById("modal--3")
+
+const overlay = document.querySelector(".overlay")
+const btnCloseModal = document.querySelector(".close-modal")
+const btnsOpenModal = document.querySelectorAll(".show-modal")
+
+const btn1 = document.getElementById("btn--1")
+const btn2 = document.getElementById("btn--2")
+const btn3 = document.getElementById("btn--3")
+
+const openModal1 = function () {
+	modal1.classList.remove("hidden")
+	overlay.classList.remove("hidden")
+}
+
+const openModal2 = function () {
+	modal2.classList.remove("hidden")
+	overlay.classList.remove("hidden")
+}
+
+const openModal3 = function () {
+	modal3.classList.remove("hidden")
+	overlay.classList.remove("hidden")
+}
+
+const closeModal = function () {
+	if (!modal1.classList.contains("hidden")) {
+		modal1.classList.add("hidden")
+	} else if (!modal2.classList.contains("hidden")) {
+		modal2.classList.add("hidden")
+	} else {
+		modal3.classList.add("hidden")
+	}
+	overlay.classList.add("hidden")
+}
+
+// for (let i = 0; i <= btnsOpenModal.length; i++) {
+// 	btnsOpenModal[i].addEventListener("click", openModal)
+
+// 	btnCloseModal.addEventListener("click", closeModal)
+// 	overlay.addEventListener("click", closeModal)
+// 	document.addEventListener("keydown", function (event) {
+// 		console.log(event)
+
+// 		const key = event.key
+
+// 		if (key === "Escape") {
+// 			if (!modal.classList.contains("hidden")) closeModal()
+// 		}
+// 	})
+// }
+
+btn1.addEventListener("click", openModal1)
+btn2.addEventListener("click", openModal2)
+btn3.addEventListener("click", openModal3)
+
+btnCloseModal.addEventListener("click", closeModal)
+overlay.addEventListener("click", closeModal)
+
+document.addEventListener("keydown", function (event) {
+	console.log(event)
+
+	const key = event.key
+
+	if (key === "Escape") {
+		if (!modal1.classList.contains("hidden")) closeModal()
+		else if (!modal2.classList.contains("hidden")) closeModal()
+		else closeModal()
+	}
+})
+
+// Guess my number
+
+const randomValue = () => Math.trunc(Math.random() * 19) + 1
+
+let valueToGuess = randomValue()
+
+let highscore = 0
+
+console.log(`Highscore: ${highscore}`)
+
+console.log(`The value to guess is: ${valueToGuess}`)
+
+// checking the guess
+document.querySelector(".check").addEventListener("click", function () {
+	console.log(document.querySelector(".guess").value)
+
+	const guessedValue = document.querySelector(".guess").value
+
+	// number is outside of the range
+	if (Number(guessedValue) < 1 || Number(guessedValue) > 20) {
+		document.querySelector(".message").textContent =
+			"Number is outside of the range!"
+	}
+	// number is higher than the value to be guessed
+	else if (Number(guessedValue) > valueToGuess) {
+		document.querySelector(".message").textContent = "Try lower..."
+	}
+	// number is lower than the value to be guessed
+	else if (Number(guessedValue) < valueToGuess) {
+		document.querySelector(".message").textContent = "Try higher..."
+	}
+
+	// the number was found
+	if (guessedValue === String(valueToGuess)) {
+		document.querySelector(".message").textContent = "Correct number!"
+
+		// the highscore gets changed
+		if (Number(document.querySelector(".score").textContent) > highscore) {
+			highscore = Number(document.querySelector(".score").textContent)
+
+			console.log(`Highscore: ${highscore}`)
+
+			document.querySelector(".highscore").textContent = Number(
+				document.querySelector(".score").textContent
+			)
+		}
+
+		document.querySelector(".number").textContent = String(valueToGuess)
+		document.querySelector(".number").style.width = "20rem"
+
+		// the body becomes green
+		// document.querySelector("body").style.backgroundColor = "green"
+		document.querySelector("header").style.backgroundColor = "green"
+		document.querySelector("main").style.backgroundColor = "green"
+	}
+	// the number was not found
+	else {
+		document.querySelector(".score").textContent = String(
+			Number(document.querySelector(".score").textContent) - 1
+		)
+	}
+})
+
+// Reseting the page
+document.querySelector(".again").addEventListener("click", function () {
+	document.querySelector(".message").textContent = "Start guessing..."
+	document.querySelector(".guess").value = ""
+	document.querySelector(".score").textContent = 20
+	valueToGuess = randomValue()
+	document.querySelector(".number").textContent = "?"
+	// document.querySelector("body").style.backgroundColor = "#222"
+
+	document.querySelector("header").style.backgroundColor = "#222"
+	document.querySelector("main").style.backgroundColor = "#222"
+	document.querySelector(".number").style.width = "15rem"
+
+	console.log(`The value to guess is: ${valueToGuess}`)
+})
+
+// Dice rolling game
+
 const newGame = function () {
 	score0Element.textContent = 0
 	score1Element.textContent = 0
@@ -25,9 +183,9 @@ const currentScoreRight = document.getElementById("current--1")
 
 const diceElement = document.querySelector(".dice")
 
-const btnNew = document.querySelector(".btn--new")
-const btnRoll = document.querySelector(".btn--roll")
-const btnHold = document.querySelector(".btn--hold")
+const btnNew = document.querySelector(".btndrg--new")
+const btnRoll = document.querySelector(".btndrg--roll")
+const btnHold = document.querySelector(".btndrg--hold")
 
 const playerLeftStatus = document.querySelector(".player--0")
 const playerRightStatus = document.querySelector(".player--1")
@@ -81,6 +239,8 @@ btnRoll.addEventListener("click", function () {
 })
 
 btnHold.addEventListener("click", function () {
+	diceElement.classList.add("hidden")
+
 	if (playerLeftStatus.classList.contains("player--active")) {
 		console.log("Switched from Player Left to Player Right.")
 
@@ -88,9 +248,11 @@ btnHold.addEventListener("click", function () {
 			Number(score0Element.textContent) +
 			Number(currentScoreLeft.textContent)
 
-		if (Number(score0Element.textContent) >= 10) {
+		if (Number(score0Element.textContent) >= 100) {
 			const scoreLeft =
 				Number(playerLeftScore.textContent.match(/:\s(\d+)/)[1]) + 1
+
+			score0Element.textContent = 0
 
 			playerLeftScore.textContent = `Score: ${scoreLeft}`
 
@@ -112,9 +274,11 @@ btnHold.addEventListener("click", function () {
 			Number(score1Element.textContent) +
 			Number(currentScoreRight.textContent)
 
-		if (Number(score1Element.textContent) >= 10) {
+		if (Number(score1Element.textContent) >= 100) {
 			const scoreRight =
 				Number(playerRightScore.textContent.match(/:\s(\d+)/)[1]) + 1
+
+			score1Element.textContent = 0
 
 			playerRightScore.textContent = `Score: ${scoreRight}`
 
