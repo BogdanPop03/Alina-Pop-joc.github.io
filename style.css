@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
 * {
 	margin: 0;
 	padding: 0;
@@ -86,9 +90,7 @@ p {
 
 /* classes for guess my number */
 
-@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
-
-body {
+.body--gmn {
 	font-family: "Press Start 2P", sans-serif;
 	color: #eee;
 	background-color: #222;
@@ -96,7 +98,8 @@ body {
 }
 
 /* LAYOUT */
-header {
+
+.header--gmn {
 	font-family: "Press Start 2P", sans-serif;
 	color: #eee;
 	background-color: #222;
@@ -106,7 +109,7 @@ header {
 	border-bottom: 7px solid #eee;
 }
 
-main {
+.main--gmn {
 	font-family: "Press Start 2P", sans-serif;
 	color: #eee;
 	background-color: #222;
@@ -117,14 +120,14 @@ main {
 	justify-content: space-around;
 }
 
-.left {
+.left--gmn {
 	width: 52rem;
 	display: flex;
 	flex-direction: column;
 	align-items: left;
 }
 
-.right {
+.right--gmn {
 	width: 22rem;
 	font-size: 2rem;
 	flex-direction: column;
@@ -132,8 +135,9 @@ main {
 }
 
 /* ELEMENTS STYLE */
-h1 {
-	font-size: 4rem;
+
+.h1--gmn {
+	font-size: 3rem;
 	text-align: center;
 	position: absolute;
 	width: 100%;
@@ -142,10 +146,10 @@ h1 {
 	transform: translate(-50%, -50%);
 }
 
-.number {
+.number--gmn {
 	background: #eee;
 	color: #333;
-	font-size: 6rem;
+	font-size: 5rem;
 	width: 15rem;
 	padding: 3rem 0rem;
 	text-align: center;
@@ -155,20 +159,20 @@ h1 {
 	transform: translate(-50%, 50%);
 }
 
-.between {
+.between--gmn {
 	font-size: 1.4rem;
 	position: absolute;
 	top: 2rem;
 	right: 2rem;
 }
 
-.again {
+.again--gmn {
 	position: absolute;
 	top: 2rem;
 	left: 2rem;
 }
 
-.guess {
+.guess--gmn {
 	background: none;
 	border: 4px solid #eee;
 	font-family: inherit;
@@ -181,7 +185,7 @@ h1 {
 	margin-bottom: 3rem;
 }
 
-.btn {
+.btn--gmn {
 	width: 25rem;
 	border: none;
 	background-color: #eee;
@@ -192,32 +196,48 @@ h1 {
 	cursor: pointer;
 }
 
-.btn:hover {
+.btn--gmn:hover {
 	background-color: #ccc;
 }
 
-.message {
+.message--gmn {
 	margin-bottom: 8rem;
 	height: 3rem;
 }
 
-.label-score {
+.label-score--gmn {
 	margin-bottom: 2rem;
 }
 
 /* Dice rolling game */
 
-h2 {
-	font-size: 4rem;
-	text-align: center;
-	position: absolute;
-	width: 100%;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.body--drg {
+	font-family: "Nunito", sans-serif;
+	font-weight: 400;
+	height: 80vh;
+	color: #333;
+	background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.player {
+/* LAYOUT */
+
+.main--drg {
+	position: relative;
+	width: 100rem;
+	height: 60rem;
+	background-color: rgba(255, 255, 255, 0.35);
+	backdrop-filter: blur(200px);
+	filter: blur();
+	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+	border-radius: 9px;
+	overflow: hidden;
+	display: flex;
+}
+
+.player--drg {
 	flex: 50%;
 	padding: 9rem;
 	display: flex;
@@ -227,7 +247,7 @@ h2 {
 }
 
 /* ELEMENTS */
-.name {
+.name--drg {
 	position: relative;
 	font-size: 4rem;
 	text-transform: uppercase;
@@ -237,28 +257,28 @@ h2 {
 	margin-bottom: 1rem;
 }
 
-.score {
+.score--drg {
 	font-size: 8rem;
 	font-weight: 300;
 	color: #c7365f;
 	margin-bottom: auto;
 }
 
-.player--active {
+.player--drg--active {
 	background-color: rgba(255, 255, 255, 0.4);
 }
-.player--active .name {
+.player--drg--active .name {
 	font-weight: 700;
 }
-.player--active .score {
+.player--drg--active .score {
 	font-weight: 400;
 }
 
-.player--active .current {
+.player--drg--active .current {
 	opacity: 1;
 }
 
-.current {
+.current--drg {
 	background-color: #c7365f;
 	opacity: 0.8;
 	border-radius: 9px;
@@ -269,19 +289,19 @@ h2 {
 	transition: all 0.75s;
 }
 
-.current-label {
+.current-label--drg {
 	text-transform: uppercase;
 	margin-bottom: 1rem;
 	font-size: 1.7rem;
 	color: #ddd;
 }
 
-.current-score {
+.current-score--drg {
 	font-size: 3.5rem;
 }
 
 /* ABSOLUTE POSITIONED ELEMENTS */
-.btndrg {
+.btn--drg {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
@@ -304,32 +324,32 @@ h2 {
 	box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
 }
 
-.btndrg::first-letter {
+.btn--drg::first-letter {
 	font-size: 2.4rem;
 	display: inline-block;
 	margin-right: 0.7rem;
 }
 
-.btndrg--new {
+.btn--drg--new {
 	top: 4rem;
 }
-.btndrg--roll {
+.btn--drg--roll {
 	top: 39.3rem;
 }
-.btndrg--hold {
+.btn--drg--hold {
 	top: 46.1rem;
 }
 
-.btndrg:active {
+.btn--drg:active {
 	transform: translate(-50%, 3px);
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 
-.btndrg:focus {
+.btn--drg:focus {
 	outline: none;
 }
 
-.dice {
+.dice--drg {
 	position: absolute;
 	left: 50%;
 	top: 16.5rem;
@@ -338,15 +358,15 @@ h2 {
 	box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
 }
 
-.player--winner {
+.player--winner--drg {
 	background-color: #2f2f2f;
 }
 
-.player--winner .name {
+.player--winner--drg .name {
 	font-weight: 700;
 	color: #c7365f;
 }
 
-.hidden {
+.hidden--drg {
 	display: none;
 }

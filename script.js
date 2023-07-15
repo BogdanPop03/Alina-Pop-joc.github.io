@@ -90,28 +90,28 @@ console.log(`Highscore: ${highscore}`)
 console.log(`The value to guess is: ${valueToGuess}`)
 
 // checking the guess
-document.querySelector(".check").addEventListener("click", function () {
-	console.log(document.querySelector(".guess").value)
+document.querySelector(".check--gmn").addEventListener("click", function () {
+	console.log(document.querySelector(".guess--gmn").value)
 
-	const guessedValue = document.querySelector(".guess").value
+	const guessedValue = document.querySelector(".guess--gmn").value
 
 	// number is outside of the range
 	if (Number(guessedValue) < 1 || Number(guessedValue) > 20) {
-		document.querySelector(".message").textContent =
+		document.querySelector(".message--gmn").textContent =
 			"Number is outside of the range!"
 	}
 	// number is higher than the value to be guessed
 	else if (Number(guessedValue) > valueToGuess) {
-		document.querySelector(".message").textContent = "Try lower..."
+		document.querySelector(".message--gmn").textContent = "Try lower..."
 	}
 	// number is lower than the value to be guessed
 	else if (Number(guessedValue) < valueToGuess) {
-		document.querySelector(".message").textContent = "Try higher..."
+		document.querySelector(".message--gmn").textContent = "Try higher..."
 	}
 
 	// the number was found
 	if (guessedValue === String(valueToGuess)) {
-		document.querySelector(".message").textContent = "Correct number!"
+		document.querySelector(".message--gmn").textContent = "Correct number!"
 
 		// the highscore gets changed
 		if (
@@ -124,18 +124,19 @@ document.querySelector(".check").addEventListener("click", function () {
 
 			console.log(`Highscore: ${highscore}`)
 
-			document.querySelector(".highscore").textContent = Number(
+			document.querySelector(".highscore--gmn").textContent = Number(
 				document.getElementById("score--gmn").textContent
 			)
 		}
 
-		document.querySelector(".number").textContent = String(valueToGuess)
-		document.querySelector(".number").style.width = "20rem"
+		document.querySelector(".number--gmn").textContent =
+			String(valueToGuess)
+		document.querySelector(".number--gmn").style.width = "20rem"
 
 		// the body becomes green
 		// document.querySelector("body").style.backgroundColor = "green"
-		document.querySelector("header").style.backgroundColor = "green"
-		document.querySelector("main").style.backgroundColor = "green"
+		document.querySelector(".header--gmn").style.backgroundColor = "green"
+		document.querySelector(".main--gmn").style.backgroundColor = "green"
 	}
 	// the number was not found
 	else {
@@ -146,17 +147,17 @@ document.querySelector(".check").addEventListener("click", function () {
 })
 
 // Reseting the page
-document.querySelector(".again").addEventListener("click", function () {
-	document.querySelector(".message").textContent = "Start guessing..."
-	document.querySelector(".guess").value = ""
+document.querySelector(".again--gmn").addEventListener("click", function () {
+	document.querySelector(".message--gmn").textContent = "Start guessing..."
+	document.querySelector(".guess--gmn").value = ""
 	document.getElementById("score--gmn").textContent = 20
 	valueToGuess = randomValue()
-	document.querySelector(".number").textContent = "?"
+	document.querySelector(".number--gmn").textContent = "?"
 	// document.querySelector("body").style.backgroundColor = "#222"
 
-	document.querySelector("header").style.backgroundColor = "#222"
-	document.querySelector("main").style.backgroundColor = "#222"
-	document.querySelector(".number").style.width = "15rem"
+	document.querySelector(".header--gmn").style.backgroundColor = "#222"
+	document.querySelector(".main--gmn").style.backgroundColor = "#222"
+	document.querySelector(".number--gmn").style.width = "15rem"
 
 	console.log(`The value to guess is: ${valueToGuess}`)
 })
@@ -167,14 +168,17 @@ const newGame = function () {
 	score0Element.textContent = 0
 	score1Element.textContent = 0
 
+	currentScoreLeft.textContent = 0
+	currentScoreRight.textContent = 0
+
 	playerLeftScore.textContent = "Score: 0"
 	playerRightScore.textContent = "Score: 0"
 
 	diceElement.classList.add("hidden")
 
-	if (!playerLeftStatus.classList.contains("player--active")) {
-		playerLeftStatus.classList.add("player--active")
-		playerRightStatus.classList.remove("player--active")
+	if (!playerLeftStatus.classList.contains("player--drg--active")) {
+		playerLeftStatus.classList.add("player--drg--active")
+		playerRightStatus.classList.remove("player--drg--active")
 	}
 
 	console.log("Game was reset.")
@@ -186,11 +190,11 @@ const score1Element = document.getElementById("score--1")
 const currentScoreLeft = document.getElementById("current--0")
 const currentScoreRight = document.getElementById("current--1")
 
-const diceElement = document.querySelector(".dice")
+const diceElement = document.querySelector(".dice--drg")
 
-const btnNew = document.querySelector(".btndrg--new")
-const btnRoll = document.querySelector(".btndrg--roll")
-const btnHold = document.querySelector(".btndrg--hold")
+const btnNew = document.querySelector(".btn--drg--new")
+const btnRoll = document.querySelector(".btn--drg--roll")
+const btnHold = document.querySelector(".btn--drg--hold")
 
 const playerLeftStatus = document.querySelector(".player--0")
 const playerRightStatus = document.querySelector(".player--1")
@@ -217,26 +221,28 @@ btnRoll.addEventListener("click", function () {
 	diceElement.classList.remove("hidden")
 
 	if (diceValue === 1) {
-		if (playerLeftStatus.classList.contains("player--active")) {
+		if (playerLeftStatus.classList.contains("player--drg--active")) {
 			console.log("Switched from Player Left to Player Right.")
 
 			currentScoreLeft.textContent = 0
 
-			playerLeftStatus.classList.remove("player--active")
-			playerRightStatus.classList.add("player--active")
+			playerLeftStatus.classList.remove("player--drg--active")
+			playerRightStatus.classList.add("player--drg--active")
 		} else {
 			console.log("Switched from Player Right to Player Left.")
 
 			currentScoreRight.textContent = 0
 
-			playerRightStatus.classList.remove("player--active")
-			playerLeftStatus.classList.add("player--active")
+			playerRightStatus.classList.remove("player--drg--active")
+			playerLeftStatus.classList.add("player--drg--active")
 		}
 	} else {
-		if (playerLeftStatus.classList.contains("player--active")) {
+		if (playerLeftStatus.classList.contains("player--drg--active")) {
 			currentScoreLeft.textContent =
 				Number(currentScoreLeft.textContent) + Number(diceValue)
-		} else if (playerRightStatus.classList.contains("player--active")) {
+		} else if (
+			playerRightStatus.classList.contains("player--drg--active")
+		) {
 			currentScoreRight.textContent =
 				Number(currentScoreRight.textContent) + Number(diceValue)
 		}
@@ -246,7 +252,7 @@ btnRoll.addEventListener("click", function () {
 btnHold.addEventListener("click", function () {
 	diceElement.classList.add("hidden")
 
-	if (playerLeftStatus.classList.contains("player--active")) {
+	if (playerLeftStatus.classList.contains("player--drg--active")) {
 		console.log("Switched from Player Left to Player Right.")
 
 		score0Element.textContent =
@@ -266,8 +272,8 @@ btnHold.addEventListener("click", function () {
 			// newGame()
 		}
 
-		playerLeftStatus.classList.remove("player--active")
-		playerRightStatus.classList.add("player--active")
+		playerLeftStatus.classList.remove("player--drg--active")
+		playerRightStatus.classList.add("player--drg--active")
 
 		console.log(
 			`Player left held ${currentScoreLeft.textContent} points and now has ${score0Element.textContent} points in total.`
@@ -292,8 +298,8 @@ btnHold.addEventListener("click", function () {
 			// newGame()
 		}
 
-		playerRightStatus.classList.remove("player--active")
-		playerLeftStatus.classList.add("player--active")
+		playerRightStatus.classList.remove("player--drg--active")
+		playerLeftStatus.classList.add("player--drg--active")
 
 		console.log(
 			`Player right held ${currentScoreRight.textContent} points and now has ${score1Element.textContent} points in total.`

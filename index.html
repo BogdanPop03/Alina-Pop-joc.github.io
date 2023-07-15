@@ -14,57 +14,69 @@
 
 		<div class="modal hidden" id="modal--1">
 			<button class="close-modal">&times;</button>
-			<h1>Guess the number</h1>
-			<header>
-				<h1>Guess My Number!</h1>
-				<p class="between">(Between 1 and 20)</p>
-				<button class="btn again">Again!</button>
-				<div class="number">?</div>
-			</header>
-			<main>
-				<section class="left">
-					<input type="number" class="guess" />
-					<button class="btn check">Check!</button>
-				</section>
-				<section class="right">
-					<p class="message">Start guessing...</p>
-					<p class="label-score">
-						💯 Score: <span id="score--gmn">20</span>
-					</p>
-					<p class="label-highscore">
-						🥇 Highscore: <span class="highscore">0</span>
-					</p>
-				</section>
-			</main>
+			<body class="body--gmn">
+				<header class="header--gmn">
+					<h1 class="h1--gmn">Guess My Number!</h1>
+					<p class="between--gmn">(Between 1 and 20)</p>
+					<button class="btn--gmn again--gmn">Again!</button>
+					<div class="number--gmn">?</div>
+				</header>
+				<main class="main--gmn">
+					<section class="left--gmn">
+						<input type="number--gmn" class="guess--gmn" />
+						<button class="btn--gmn check--gmn">Check!</button>
+					</section>
+					<section class="right--gmn">
+						<p class="message--gmn">Start guessing...</p>
+						<p class="label-score--gmn">
+							Score: <span id="score--gmn">20</span>
+						</p>
+						<p class="label-highscore--gmn">
+							Highscore: <span class="highscore--gmn">0</span>
+						</p>
+					</section>
+				</main>
+			</body>
 		</div>
 
 		<div class="modal hidden" id="modal--2">
 			<button class="close-modal">&times;</button>
-			<h2>Dice rolling game</h2>
-			<main>
-				<section class="player player--0 player--active">
-					<h2 class="name" id="name--0">Player 1</h2>
-					<h3 class="name" , id="player--left--score">Score: 0</h3>
-					<p class="score" id="score--0">43</p>
-					<div class="current">
-						<p class="current-label">Current</p>
-						<p class="current-score" id="current--0">0</p>
-					</div>
-				</section>
-				<section class="player player--1">
-					<h2 class="name" id="name--1">Player 2</h2>
-					<h3 class="name" , id="player--right--score">Score: 0</h3>
-					<p class="score" id="score--1">24</p>
-					<div class="current">
-						<p class="current-label">Current</p>
-						<p class="current-score" id="current--1">0</p>
-					</div>
-				</section>
+			<main class="body--drg">
+				<main class="main--drg">
+					<section class="player--drg player--0 player--drg--active">
+						<h2 class="name--drg" id="name--0">Player 1</h2>
+						<h3 class="name--drg" , id="player--left--score">
+							Score: 0
+						</h3>
+						<p class="score--drg" id="score--0">43</p>
+						<div class="current--drg">
+							<p class="current-label--drg">Current</p>
+							<p class="current-score--drg" id="current--0">0</p>
+						</div>
+					</section>
+					<section class="player--drg player--1">
+						<h2 class="name--drg" id="name--1">Player 2</h2>
+						<h3 class="name--drg" , id="player--right--score">
+							Score: 0
+						</h3>
+						<p class="score--drg" id="score--1">24</p>
+						<div class="current--drg">
+							<p class="current-label--drg">Current</p>
+							<p class="current-score--drg" id="current--1">0</p>
+						</div>
+					</section>
 
-				<img src="dice-5.png" alt="Playing dice" class="dice" />
-				<button class="btndrg btndrg--new">🔄 New game</button>
-				<button class="btndrg btndrg--roll">🎲 Roll dice</button>
-				<button class="btndrg btndrg--hold">📥 Hold</button>
+					<img
+						src="dice-5.png"
+						alt="Playing dice"
+						class="dice--drg"
+					/>
+					<button class="btn--drg btn--drg--new">🔄 New game</button>
+					<button class="btn--drg btn--drg--roll">
+						🎲 Roll dice
+					</button>
+					<button class="btn--drg btn--drg--hold">📥 Hold</button>
+				</main>
 			</main>
 		</div>
 
