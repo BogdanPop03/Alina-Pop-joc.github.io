@@ -9,7 +9,12 @@ const modal2 = document.getElementById("modal--2")
 const modal3 = document.getElementById("modal--3")
 
 const overlay = document.querySelector(".overlay")
-const btnCloseModal = document.querySelector(".close-modal")
+// const btnCloseModal = document.querySelector(".close-modal")
+
+const btnCloseModal1 = document.getElementById("close-modal-1")
+const btnCloseModal2 = document.getElementById("close-modal-2")
+const btnCloseModal3 = document.getElementById("close-modal-3")
+
 const btnsOpenModal = document.querySelectorAll(".show-modal")
 
 const btn1 = document.getElementById("btn--1")
@@ -19,16 +24,22 @@ const btn3 = document.getElementById("btn--3")
 const openModal1 = function () {
 	modal1.classList.remove("hidden")
 	overlay.classList.remove("hidden")
+
+	console.log("Modal 1 was opened.")
 }
 
 const openModal2 = function () {
 	modal2.classList.remove("hidden")
 	overlay.classList.remove("hidden")
+
+	console.log("Modal 2 was opened.")
 }
 
 const openModal3 = function () {
 	modal3.classList.remove("hidden")
 	overlay.classList.remove("hidden")
+
+	console.log("Modal 3 was opened.")
 }
 
 const closeModal = function () {
@@ -40,6 +51,8 @@ const closeModal = function () {
 		modal3.classList.add("hidden")
 	}
 	overlay.classList.add("hidden")
+
+	console.log("Modal was closed.")
 }
 
 // for (let i = 0; i <= btnsOpenModal.length; i++) {
@@ -62,13 +75,17 @@ btn1.addEventListener("click", openModal1)
 btn2.addEventListener("click", openModal2)
 btn3.addEventListener("click", openModal3)
 
-btnCloseModal.addEventListener("click", closeModal)
+btnCloseModal1.addEventListener("click", closeModal)
+btnCloseModal2.addEventListener("click", closeModal)
+btnCloseModal3.addEventListener("click", closeModal)
 overlay.addEventListener("click", closeModal)
 
 document.addEventListener("keydown", function (event) {
 	console.log(event)
 
 	const key = event.key
+
+	console.log(`The ${key} was pressed.`)
 
 	if (key === "Escape") {
 		if (!modal1.classList.contains("hidden")) closeModal()
