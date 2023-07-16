@@ -10,7 +10,7 @@
 	<body>
 		<button class="show-modal" id="btn--1">Guess my number</button>
 		<button class="show-modal" id="btn--2">Dice rolling game</button>
-		<button class="show-modal" id="btn--3">work in progress</button>
+		<button class="show-modal" id="btn--3">Rock paper scissors</button>
 
 		<div class="modal hidden" id="modal--1">
 			<button class="close-modal" id="close-modal-1">&times;</button>
@@ -82,8 +82,80 @@
 
 		<div class="modal hidden" id="modal--3">
 			<button class="close-modal" id="close-modal-3">&times;</button>
-			<h1>Wrok in progress</h1>
-			<p>modal 3</p>
+			<section class="section--rps">
+				<main class="main--rps">
+					<section class="player--rps">
+						<h1 class="h1--rps">Rock! Paper!! Scissors!!!</h1>
+						<h2 class="h2--rps h2--rps--you" id="score--rps--you">
+							Score (you): 0
+						</h2>
+						<h2
+							class="h2--rps h2--rps--computer"
+							id="score--rps--computer"
+						>
+							Score (computer): 0
+						</h2>
+						<img
+							src="rock.png"
+							alt="Playing rock paper scissors"
+							class="image--rps image--rps--left"
+							id="image--left"
+						/>
+						<img
+							src="vs.png"
+							alt="Playing rock paper scissors"
+							class="image--rps image--rps--center"
+							id="image--center--vs"
+						/>
+						<img
+							src="winner.png"
+							alt="you won"
+							class="image--rps image--rps--center hidden--rps"
+							id="image--center--won"
+						/>
+						<img
+							src="tie.png"
+							alt="you tied"
+							class="image--rps image--rps--center hidden--rps"
+							id="image--center--tie"
+						/>
+						<img
+							src="loser.png"
+							alt="you lost"
+							class="image--rps image--rps--center hidden--rps"
+							id="image--center--lost"
+						/>
+						<img
+							src="paper.png"
+							alt="Playing rock paper scissors"
+							class="image--rps image--rps--right"
+							id="image--right"
+						/>
+						<p class="name--rps" id="choice--rps">You choose:</p>
+						<button class="btn--rps btn--rps--rock" id="btn--rock">
+							Rock
+						</button>
+						<button
+							class="btn--rps btn--rps--paper"
+							id="btn--paper"
+						>
+							Paper
+						</button>
+						<button
+							class="btn--rps btn--rps--scissors"
+							id="btn--scissors"
+						>
+							Scissors
+						</button>
+						<button
+							class="btn--rps btn--rps--again"
+							id="btn--again"
+						>
+							Again
+						</button>
+					</section>
+				</main>
+			</section>
 		</div>
 		<div class="overlay hidden"></div>
 

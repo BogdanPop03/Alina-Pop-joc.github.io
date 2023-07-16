@@ -326,3 +326,188 @@ btnHold.addEventListener("click", function () {
 	currentScoreLeft.textContent = 0
 	currentScoreRight.textContent = 0
 })
+
+// Rock paper scissors
+
+const btnRock = document.getElementById("btn--rock")
+const btnPaper = document.getElementById("btn--paper")
+const btnScissors = document.getElementById("btn--scissors")
+const btnAgain = document.getElementById("btn--again")
+
+const scoreRpsYou = document.getElementById("score--rps--you")
+const scoreRpsComputer = document.getElementById("score--rps--computer")
+const playerChoice = document.getElementById("choice--rps")
+
+const leftImg = document.getElementById("image--left")
+const ritghImg = document.getElementById("image--right")
+const centerVsImg = document.getElementById("image--center--vs")
+const centerWonImg = document.getElementById("image--center--won")
+const centerTieImg = document.getElementById("image--center--tie")
+const centerLostImg = document.getElementById("image--center--lost")
+
+const randomChoice = () => Math.trunc(Math.random() * 3) + 1
+
+const rightImgChoice = function () {
+	const computerChoice = randomChoice()
+
+	if (computerChoice === 1) return "rock"
+	else if (computerChoice === 2) return "paper"
+	else return "scissors"
+}
+
+const winCondition = function (left, right) {
+	if (left === "rock" && right === "scissors") return "won"
+	else if (left === "rock" && right === "paper") return "lost"
+	else if (left === "rock" && right === "rock") return "tie"
+
+	if (left === "paper" && right === "rock") return "won"
+	else if (left === "paper" && right === "scissors") return "lost"
+	else if (left === "paper" && right === "paper") return "tie"
+
+	if (left === "scissors" && right === "paper") return "won"
+	else if (left === "scissors" && right === "rock") return "lost"
+	else if (left === "scissors" && right === "scissors") return "tie"
+}
+
+btnRock.addEventListener("click", function () {
+	leftImg.src = "rock.png"
+
+	const imageValue = rightImgChoice()
+
+	ritghImg.src = imageValue + ".png"
+
+	console.log(`The computer's choice was: ${imageValue}`)
+
+	const result = winCondition("rock", imageValue)
+
+	if (result === "won") {
+		leftImg.classList.add("hidden--rps")
+		centerVsImg.classList.add("hidden--rps")
+		ritghImg.classList.add("hidden--rps")
+
+		centerWonImg.classList.remove("hidden--rps")
+
+		const scoreValueYou =
+			Number(scoreRpsYou.textContent.match(/:\s(\d+)/)[1]) + 1
+
+		scoreRpsYou.textContent = `Score (you): ${scoreValueYou}`
+	} else if (result === "tie") {
+		leftImg.classList.add("hidden--rps")
+		centerVsImg.classList.add("hidden--rps")
+		ritghImg.classList.add("hidden--rps")
+
+		centerTieImg.classList.remove("hidden--rps")
+	} else {
+		leftImg.classList.add("hidden--rps")
+		centerVsImg.classList.add("hidden--rps")
+		ritghImg.classList.add("hidden--rps")
+
+		centerLostImg.classList.remove("hidden--rps")
+
+		const scoreValueComputer =
+			Number(scoreRpsComputer.textContent.match(/:\s(\d+)/)[1]) + 1
+
+		scoreRpsComputer.textContent = `Score (computer): ${scoreValueComputer}`
+	}
+})
+
+btnPaper.addEventListener("click", function () {
+	leftImg.src = "paper.png"
+
+	const imageValue = rightImgChoice()
+
+	ritghImg.src = imageValue + ".png"
+
+	console.log(`The computer's choice was: ${imageValue}`)
+
+	const result = winCondition("paper", imageValue)
+
+	if (result === "won") {
+		leftImg.classList.add("hidden--rps")
+		centerVsImg.classList.add("hidden--rps")
+		ritghImg.classList.add("hidden--rps")
+
+		centerWonImg.classList.remove("hidden--rps")
+
+		const scoreValueYou =
+			Number(scoreRpsYou.textContent.match(/:\s(\d+)/)[1]) + 1
+
+		scoreRpsYou.textContent = `Score (you): ${scoreValueYou}`
+	} else if (result === "tie") {
+		leftImg.classList.add("hidden--rps")
+		centerVsImg.classList.add("hidden--rps")
+		ritghImg.classList.add("hidden--rps")
+
+		centerTieImg.classList.remove("hidden--rps")
+	} else {
+		leftImg.classList.add("hidden--rps")
+		centerVsImg.classList.add("hidden--rps")
+		ritghImg.classList.add("hidden--rps")
+
+		centerLostImg.classList.remove("hidden--rps")
+
+		const scoreValueComputer =
+			Number(scoreRpsComputer.textContent.match(/:\s(\d+)/)[1]) + 1
+
+		scoreRpsComputer.textContent = `Score (computer): ${scoreValueComputer}`
+	}
+})
+
+btnScissors.addEventListener("click", function () {
+	leftImg.src = "scissors.png"
+
+	const imageValue = rightImgChoice()
+
+	ritghImg.src = imageValue + ".png"
+
+	console.log(`The computer's choice was: ${imageValue}`)
+
+	const result = winCondition("scissors", imageValue)
+
+	if (result === "won") {
+		leftImg.classList.add("hidden--rps")
+		centerVsImg.classList.add("hidden--rps")
+		ritghImg.classList.add("hidden--rps")
+
+		centerWonImg.classList.remove("hidden--rps")
+
+		const scoreValueYou =
+			Number(scoreRpsYou.textContent.match(/:\s(\d+)/)[1]) + 1
+
+		scoreRpsYou.textContent = `Score (you): ${scoreValueYou}`
+	} else if (result === "tie") {
+		leftImg.classList.add("hidden--rps")
+		centerVsImg.classList.add("hidden--rps")
+		ritghImg.classList.add("hidden--rps")
+
+		centerTieImg.classList.remove("hidden--rps")
+	} else {
+		leftImg.classList.add("hidden--rps")
+		centerVsImg.classList.add("hidden--rps")
+		ritghImg.classList.add("hidden--rps")
+
+		centerLostImg.classList.remove("hidden--rps")
+
+		const scoreValueComputer =
+			Number(scoreRpsComputer.textContent.match(/:\s(\d+)/)[1]) + 1
+
+		scoreRpsComputer.textContent = `Score (computer): ${scoreValueComputer}`
+	}
+})
+
+btnAgain.addEventListener("click", function () {
+	leftImg.src = "rock.png"
+
+	ritghImg.src = "paper.png"
+
+	if (!centerWonImg.classList.contains("hidden--rps"))
+		centerWonImg.classList.add("hidden--rps")
+	if (!centerTieImg.classList.contains("hidden--rpg"))
+		centerTieImg.classList.add("hidden--rps")
+	if (!centerLostImg.classList.contains("hidden--rps"))
+		centerLostImg.classList.add("hidden--rps")
+
+	centerVsImg.classList.remove("hidden--rps")
+	leftImg.classList.remove("hidden--rps")
+	ritghImg.classList.remove("hidden--rps")
+})
